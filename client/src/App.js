@@ -46,7 +46,6 @@ const App = () => {
           </Paper>
           <hr />
           <Box sx={{ overflowY: 'auto', maxHeight: 'calc(100vh - 250px)', marginTop: 2 }}>
-            <h2 style={{ color: '#ffffff', textAlign: 'center' }}>Posts</h2>
             <PostList />
           </Box>
         </Container>
