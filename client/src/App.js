@@ -1,12 +1,15 @@
+import React from "react";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { CssBaseline, Container, Box, Paper } from "@mui/material";
 import PostCreate from "./PostCreate";
 import PostList from "./PostList";
-import { Box, Container, ThemeProvider, createTheme, Typography } from '@mui/material';
+import backgroundImage from './images/3949076.webp'; // Import the image
 
 const theme = createTheme({
   palette: {
     mode: 'dark',
     background: {
-      default: '#121212',
+      default: '#657786', // Fallback background color
       paper: '#1d1d1d',
     },
     primary: {
@@ -26,23 +29,24 @@ const theme = createTheme({
 const App = () => {
   return (
     <ThemeProvider theme={theme}>
-      <Box sx={{ backgroundColor: theme.palette.background.default }}>
-        <Box
-          sx={{
-            position: 'sticky',
-            top: 0,
-            zIndex: 1000,
-            backgroundColor: theme.palette.background.default,
-            py: 2,
-            borderBottom: `1px solid ${theme.palette.primary.main}`,
-            width: '100%',
-          }}
-        >
-          <PostCreate />
-        </Box>
-        <Container maxWidth="md" sx={{ mt: 4 }}>
-          <Box sx={{ display: '-ms-flexbox', flexDirection: 'column', gap: 2 }}>
-            <Typography variant="h4">Posts</Typography>
+      <CssBaseline />
+      <Box
+        sx={{
+          backgroundImage: `url(${backgroundImage})`, // Use the imported image
+          backgroundSize: 'cover', // Cover the whole area
+          backgroundPosition: 'center', // Center the image
+          minHeight: '100vh',
+          paddingTop: 2,
+          backgroundColor: theme.palette.background.default, // Fallback background color
+        }}
+      >
+        <Container maxWidth="md">
+          <Paper sx={{ p: 4, backgroundColor: theme.palette.background.paper, position: 'sticky', top: 0, zIndex: 1 }}>
+            <PostCreate />
+          </Paper>
+          <hr />
+          <Box sx={{ overflowY: 'auto', maxHeight: 'calc(100vh - 250px)', marginTop: 2 }}>
+            <h2 style={{ color: '#ffffff', textAlign: 'center' }}>Posts</h2>
             <PostList />
           </Box>
         </Container>

@@ -10,7 +10,7 @@ const theme = createTheme({
     mode: 'dark',
     background: {
       default: '#121212',
-      paper: '#1d1d1d',
+      paper: 'rgba(29, 29, 29, 0.7)', // Semi-transparent paper for smoky glass effect
     },
     primary: {
       main: '#90caf9',
@@ -47,11 +47,12 @@ const PostList = () => {
         borderRadius: 2,
         boxShadow: '0 4px 8px rgba(144, 202, 249, 0.5)', // Subtle glow effect
         opacity: 0.9,
+        backdropFilter: 'blur(10px)', // Apply the blur for smoky glass effect
         transition: 'opacity 0.3s, box-shadow 0.3s',
         '&:hover': {
           opacity: 1,
           boxShadow: '0 8px 16px rgba(144, 202, 249, 0.7)', // More pronounced glow on hover
-        }
+        },
       }}
     >
       <CardContent>
@@ -66,8 +67,8 @@ const PostList = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Container maxWidth="md" sx={{ mt: 4 }}>
-        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+      <Container maxWidth="md">
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, marginBottom: 2 }}>
           {renderedPosts}
         </Box>
       </Container>
