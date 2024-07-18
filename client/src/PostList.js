@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { Container, Card, CardContent, Typography, Box, Paper } from '@mui/material';
+import { Container, Card, CardContent, Typography, Box } from '@mui/material';
 import CommentCreate from './CommentCreate';
 import CommentList from './CommentList';
 
@@ -45,11 +45,12 @@ const PostList = () => {
         mb: 2,
         backgroundColor: theme.palette.background.paper,
         borderRadius: 2,
-        boxShadow: 3,
+        boxShadow: '0 4px 8px rgba(144, 202, 249, 0.5)', // Subtle glow effect
         opacity: 0.9,
-        transition: 'opacity 0.3s',
+        transition: 'opacity 0.3s, box-shadow 0.3s',
         '&:hover': {
           opacity: 1,
+          boxShadow: '0 8px 16px rgba(144, 202, 249, 0.7)', // More pronounced glow on hover
         }
       }}
     >

@@ -1,6 +1,6 @@
 import PostCreate from "./PostCreate";
 import PostList from "./PostList";
-import { Box, Container, ThemeProvider, createTheme } from '@mui/material';
+import { Box, Container, ThemeProvider, createTheme, Typography } from '@mui/material';
 
 const theme = createTheme({
   palette: {
@@ -41,7 +41,8 @@ const App = () => {
           <PostCreate />
         </Box>
         <Container maxWidth="md" sx={{ mt: 4 }}>
-          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+          <Box sx={{ display: '-ms-flexbox', flexDirection: 'column', gap: 2 }}>
+            <Typography variant="h4">Posts</Typography>
             <PostList />
           </Box>
         </Container>
