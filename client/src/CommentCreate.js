@@ -25,34 +25,46 @@ const CommentCreate = ({ postId }) => {
       },
     },
   });
-
+  
   const onSubmit = async (event) => {
     event.preventDefault();
+
+    if (content.trim() === "") {
+      alert("Comment cannot be empty");
+      return;
+    }
+
     await axios.post(`http://localhost:4001/posts/${postId}/comments`, { content });
     setContent('');
   };
 
   return (
     <ThemeProvider theme={theme}>
-    <Box component="form" onSubmit={onSubmit} sx={{ mt: 2 }}>
-      <Typography variant="h6" component="label" gutterBottom>
-        New Comment
-      </Typography>
-      <TextField
-              label="comment"
-              variant="outlined"
-              value={content}
-              onChange={(e) => setContent(e.target.value)}
-              fullWidth
-            />
-      <Button
-              type="submit"
-              variant="contained"
-              color="primary"
-            >
-              Submit
-            </Button>
-    </Box>
+      <Box component="form" onSubmit={onSubmit} sx={{ mt: 2 }}>
+        <Typography variant="h6" component="label" gutterBottom>
+          New Comment
+        </Typography>
+        <TextField
+          label="Comment"
+          variant="outlined"
+          placeholder="Enter comment"
+          InputLabelProps={{
+            style: { color: 'rgba(255, 255, 255, 0.5)' }, // Subtle watermark style
+          }}
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+          fullWidth
+        />
+        <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          disabled={content.trim() === ""}
+          sx={{ mt: 2 }}
+        >
+          Submit
+        </Button>
+      </Box>
     </ThemeProvider>
   );
 };

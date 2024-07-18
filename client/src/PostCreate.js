@@ -30,10 +30,12 @@ const PostCreate = () => {
   const onSubmit = async (event) => {
     event.preventDefault();
 
-    await axios.post("http://localhost:4000/posts", {
-      title,
-    });
+    if (title.trim() === "") {
+      alert("Title cannot be empty");
+      return;
+    }
 
+    await axios.post("http://localhost:4000/posts", { title });
     setTitle("");
   };
 
@@ -47,7 +49,7 @@ const PostCreate = () => {
             sx={{
               display: 'flex',
               flexDirection: 'column',
-              gap: 2
+              gap: 2,
             }}
           >
             <Typography variant="h4" component="h1" gutterBottom>
@@ -56,6 +58,10 @@ const PostCreate = () => {
             <TextField
               label="Title"
               variant="outlined"
+              placeholder="Enter title"
+              InputLabelProps={{
+                style: { color: 'rgba(255, 255, 255, 0.5)' }, // Subtle watermark style
+              }}
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               fullWidth
@@ -64,6 +70,7 @@ const PostCreate = () => {
               type="submit"
               variant="contained"
               color="primary"
+              disabled={title.trim() === ""}
             >
               Submit
             </Button>

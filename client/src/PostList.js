@@ -42,10 +42,15 @@ const PostList = () => {
     <Card
       key={post.id}
       sx={{
-        width: '45%',
         mb: 2,
         backgroundColor: theme.palette.background.paper,
-        mx: 'auto',
+        borderRadius: 2,
+        boxShadow: 3,
+        opacity: 0.9,
+        transition: 'opacity 0.3s',
+        '&:hover': {
+          opacity: 1,
+        }
       }}
     >
       <CardContent>
@@ -61,7 +66,7 @@ const PostList = () => {
   return (
     <ThemeProvider theme={theme}>
       <Container maxWidth="md" sx={{ mt: 4 }}>
-        <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
           {renderedPosts}
         </Box>
       </Container>
