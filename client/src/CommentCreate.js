@@ -25,7 +25,7 @@ const CommentCreate = ({ postId }) => {
       },
     },
   });
-  
+
   const onSubmit = async (event) => {
     event.preventDefault();
 
