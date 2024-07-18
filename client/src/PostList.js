@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { Container, Card, CardContent, Typography, Box } from '@mui/material';
+import { Container, Card, CardContent, Typography, Box, Paper } from '@mui/material';
 import CommentCreate from './CommentCreate';
 import CommentList from './CommentList';
 
