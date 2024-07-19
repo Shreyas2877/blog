@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { Typography, Box } from '@mui/material';
 
@@ -24,18 +23,8 @@ const theme = createTheme({
   },
 });
 
-const CommentList = ({ postId }) => {
-  const [comments, setComments] = useState([]);
-
-  const fetchComments = async () => {
-    const res = await axios.get(`http://localhost:4001/posts/${postId}/comments`);
-    setComments(res.data);
-  };
-
-  useEffect(() => {
-    fetchComments();
-  }, []);
-
+const CommentList = ({ comments }) => {
+  
   const renderedComments = comments.length > 0 ? comments.map((comment) => (
     <Box 
       key={comment.id} 
