@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { Container, Typography, Box } from '@mui/material';
+import { Typography, Box } from '@mui/material';
 
 const theme = createTheme({
   palette: {
@@ -36,31 +36,48 @@ const CommentList = ({ postId }) => {
     fetchComments();
   }, []);
 
-  const renderedComments = comments.map((comment) => (
+  const renderedComments = comments.length > 0 ? comments.map((comment) => (
     <Box 
       key={comment.id} 
       sx={{ 
-        mb: 2, 
-        p: 2, 
+        mb: 1, 
+        p: 1, 
         backgroundColor: theme.palette.background.paper, 
         borderRadius: 1,
         overflow: 'hidden',
         wordWrap: 'break-word'
       }}
     >
-      <Typography variant="body1">
+      <Typography variant="body2">
         {comment.content}
       </Typography>
     </Box>
-  ));
+  )) : (
+    <Typography 
+      variant="body2" 
+      sx={{ 
+        color: theme.palette.text.disabled, 
+        textAlign: 'center', 
+        mt: 2 
+      }}
+    >
+      No comments yet
+    </Typography>
+  );
 
   return (
     <ThemeProvider theme={theme}>
-      <Container maxWidth="md" sx={{ mt: 4 }}>
-        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-          {renderedComments}
-        </Box>
-      </Container>
+      <Box sx={{ 
+        maxHeight: '150px', 
+        overflowY: 'auto', 
+        mt: 2,
+        p: 1,
+        backgroundColor: theme.palette.background.paper,
+        borderRadius: 1,
+        border: `1px solid ${theme.palette.primary.main}`
+      }}>
+        {renderedComments}
+      </Box>
     </ThemeProvider>
   );
 };

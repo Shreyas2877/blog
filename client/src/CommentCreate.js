@@ -25,7 +25,7 @@ const CommentCreate = ({ postId }) => {
       },
     },
   });
-  
+
   const onSubmit = async (event) => {
     event.preventDefault();
 
@@ -41,9 +41,6 @@ const CommentCreate = ({ postId }) => {
   return (
     <ThemeProvider theme={theme}>
       <Box component="form" onSubmit={onSubmit} sx={{ mt: 2 }}>
-        <Typography variant="h6" component="label" gutterBottom>
-          New Comment
-        </Typography>
         <TextField
           label="Comment"
           variant="outlined"
@@ -65,6 +62,10 @@ const CommentCreate = ({ postId }) => {
           Submit
         </Button>
       </Box>
+      <br/>
+      <Typography variant="p" component="label" gutterBottom>
+        Comments
+      </Typography>
     </ThemeProvider>
   );
 };

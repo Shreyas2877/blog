@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { Container, TextField, Button, Typography, Box, Paper } from "@mui/material";
+import { Box, TextField, Button, Typography, Paper } from "@mui/material";
 
 const theme = createTheme({
   palette: {
@@ -37,11 +37,12 @@ const PostCreate = () => {
 
     await axios.post("http://localhost:4000/posts", { title });
     setTitle("");
+    window.location.reload(); // Reloads the page to fetch the new posts
   };
 
   return (
     <ThemeProvider theme={theme}>
-      <Container maxWidth="sm" sx={{ mt: 4 }}>
+      <Box sx={{ width: '100%', px: 2 }}>
         <Paper sx={{ p: 4, backgroundColor: theme.palette.background.paper }}>
           <Box
             component="form"
@@ -52,8 +53,8 @@ const PostCreate = () => {
               gap: 2,
             }}
           >
-            <Typography variant="h4" component="h1" gutterBottom>
-              Create a Post
+            <Typography variant="h4" component="h1" align="center" gutterBottom>
+              Post it!
             </Typography>
             <TextField
               label="Title"
@@ -76,7 +77,7 @@ const PostCreate = () => {
             </Button>
           </Box>
         </Paper>
-      </Container>
+      </Box>
     </ThemeProvider>
   );
 };
