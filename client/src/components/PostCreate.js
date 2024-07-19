@@ -37,7 +37,6 @@ const PostCreate = () => {
 
     await axios.post("http://localhost:4000/posts", { title });
     setTitle("");
-    window.location.reload(); // Reloads the page to fetch the new posts
   };
 
   return (
