@@ -1,8 +1,8 @@
 import React from "react";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { CssBaseline, Container, Box, Paper } from "@mui/material";
-import PostCreate from "./PostCreate";
-import PostList from "./PostList";
+import PostCreate from "./components/PostCreate";
+import PostList from "./components/PostList";
 import backgroundImage from './images/3949076.webp'; // Import the image
 
 const theme = createTheme({
