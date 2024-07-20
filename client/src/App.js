@@ -3,7 +3,7 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { CssBaseline, Container, Box, Paper } from "@mui/material";
 import PostCreate from "./components/PostCreate";
 import PostList from "./components/PostList";
-import backgroundImage from './images/3949076.webp'; // Import the image
+import backgroundImage from './images/minimal-wallpaper.jpg'; // Import the image
 
 const theme = createTheme({
   palette: {
