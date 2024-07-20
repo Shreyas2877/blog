@@ -42,7 +42,16 @@ const PostCreate = () => {
   return (
     <ThemeProvider theme={theme}>
       <Box sx={{ width: '100%', px: 2 }}>
-        <Paper sx={{ p: 4, backgroundColor: theme.palette.background.paper }}>
+        <Paper sx={{ 
+          p: 4, 
+          backgroundColor: theme.palette.background.paper, 
+          boxShadow: '0 4px 8px rgba(240, 236, 165, 0.5)', 
+          borderRadius: 2, // Adding rounded corners
+          '&:hover': {
+            opacity: 1,
+            boxShadow: '0 8px 16px rgba(240, 236, 165, 0.7)', // More pronounced glow on hover
+          }, 
+        }}>
           <Box
             component="form"
             onSubmit={onSubmit}

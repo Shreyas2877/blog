@@ -45,13 +45,13 @@ const PostList = () => {
         mb: 2,
         backgroundColor: theme.palette.background.paper,
         borderRadius: 2,
-        boxShadow: '0 4px 8px rgba(144, 202, 249, 0.5)', // Subtle glow effect
+        boxShadow: '0 4px 8px rgba(240, 236, 165, 0.5)', // Subtle glow effect
         opacity: 0.9,
         backdropFilter: 'blur(10px)', // Apply the blur for smoky glass effect
         transition: 'opacity 0.3s, box-shadow 0.3s',
         '&:hover': {
           opacity: 1,
-          boxShadow: '0 8px 16px rgba(144, 202, 249, 0.7)', // More pronounced glow on hover
+          boxShadow: '0 8px 16px rgba(240, 236, 165, 0.7)', // More pronounced glow on hover
         },
       }}
     >
