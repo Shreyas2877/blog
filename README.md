@@ -61,7 +61,6 @@
   <li>Install dependencies using <code>npm install</code> in each service folder</li>
   <li>Start the services using <code>npm start</code> in each service folder</li>
 </ol>
-" alt="Design Diagram" width="600"/>
 </p>
 
 <div style="font-family: Arial, sans-serif; line-height: 1.6;">
@@ -100,7 +99,6 @@
   <li>Install dependencies using <code>npm install</code> in each service folder</li>
   <li>Start the services using <code>npm start</code> in each service folder</li>
 </ol>
-path/to/your/design-diagram.png" alt="Design Diagram" width="600"/>
 </p>
 
 <div style="font-family: Arial, sans-serif; line-height: 1.6;">
