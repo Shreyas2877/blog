@@ -41,10 +41,10 @@ const App = () => {
         }}
       >
         <Container maxWidth="md">
-          <Paper sx={{ p: 4, backgroundColor: theme.palette.background.paper, position: 'sticky', top: 0, zIndex: 1 }}>
+          <Paper sx={{ p: 4, backgroundColor: "#303133" ,opacity: 0.9,
+        backdropFilter: 'blur(10px)', transition: 'opacity 0.3s, box-shadow 0.3s', position: 'sticky', top: 0, zIndex: 1 }}>
             <PostCreate />
           </Paper>
-          <hr />
           <Box sx={{ overflowY: 'auto', maxHeight: 'calc(100vh - 250px)', marginTop: 2 }}>
             <PostList />
           </Box>

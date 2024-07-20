@@ -24,22 +24,40 @@ const theme = createTheme({
 });
 
 const CommentList = ({ comments }) => {
-  
   const renderedComments = comments.length > 0 ? comments.map((comment) => (
     <Box 
       key={comment.id} 
       sx={{ 
-        mb: 1, 
-        p: 1, 
-        backgroundColor: theme.palette.background.paper, 
-        borderRadius: 1,
-        overflow: 'hidden',
-        wordWrap: 'break-word'
+        mb: 2,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'flex-start',
       }}
     >
-      <Typography variant="body2">
-        {comment.content}
+      <Typography 
+        variant="caption" 
+        sx={{ 
+          color: 'rgba(255, 255, 255, 0.5)', // Subtle watermark color
+          mb: 1
+        }}
+      >
+        Shreyas
       </Typography>
+      <Box 
+        sx={{ 
+          p: 2, 
+          backgroundColor: theme.palette.background.paper, 
+          borderRadius: '15px',
+          overflow: 'hidden',
+          wordWrap: 'break-word',
+          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)', // Adding a shadow for bubble effect
+          maxWidth: '60%',
+        }}
+      >
+        <Typography variant="body2">
+          {comment.content}
+        </Typography>
+      </Box>
     </Box>
   )) : (
     <Typography 
@@ -63,7 +81,10 @@ const CommentList = ({ comments }) => {
         p: 1,
         backgroundColor: theme.palette.background.paper,
         borderRadius: 1,
-        border: `1px solid ${theme.palette.primary.main}`
+        border: `1px solid ${theme.palette.primary.main}`,
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 2 // Gap between comment bubbles
       }}>
         {renderedComments}
       </Box>
