@@ -1,20 +1,4 @@
-# blog
-**MERN stack learning**
-
-<div align="center">
-  <h2>This is a simple blog application in MERN stack.</h2>
-</div>
-
-<p align="center">
-  <img src="# blog
-**MERN stack learning**
-
-<div align="center">
-  <h2>This is a simple blog application in MERN stack.</h2>
-</div>
-
-<p align="center">
-  <img src="# blog
+# Blog
 **MERN stack learning**
 
 <div align="center">
