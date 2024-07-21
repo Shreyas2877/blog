@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: comments-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: comments
+  template:
+    metadata:
+      labels:
+        app: comments
+    spec:
+      containers:
+        - name: comments
+          image: trojan2877/comments:0.0.1
+          env:
+            - name: MONGO_URI
+              value: mongodb://mongodb-service:27017/blog
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: comments-clusterid-srv
+spec:
+  selector:
+    app: comments
+  type: ClusterIP
+  ports: 
+    - name: comments
+      protocol: TCP
+      port: 4001
+      targetPort: 4001

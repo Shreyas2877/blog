@@ -35,7 +35,7 @@ const PostCreate = () => {
       return;
     }
 
-    await axios.post("http://localhost:4000/posts", { title });
+    await axios.post("http://posts.com/posts", { title });
     setTitle("");
   };
 

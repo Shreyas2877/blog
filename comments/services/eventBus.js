@@ -3,7 +3,7 @@ const Comment = require('../models/Comment');
 
 const router = express.Router();
 
-router.post('/events', async (req, res) => {
+router.post('/', async (req, res) => {
   console.log('Event Received:', req.body.type);
   const { type, data } = req.body;
 

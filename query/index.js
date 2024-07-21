@@ -28,7 +28,7 @@ const handleEvent = (type, data) => {
 };
 
 // Endpoint to get posts
-app.get('/posts', (req, res) => {
+app.get('/query', (req, res) => {
   res.send(posts);
 });
 
@@ -43,14 +43,14 @@ app.post('/events', (req, res) => {
 const initialize = async () => {
   try {
     // Fetch posts from the posts service
-    const postsRes = await axios.get('http://localhost:4000/posts');
+    const postsRes = await axios.get('http://posts—clusterip-srv:4000/posts');
     for (const postId in postsRes.data) {
       const post = postsRes.data[postId];
       const test = post.id;
       posts[postId] = { id: post.id, title: post.title, comments: [] };
 
       try {
-        const commentsRes = await axios.get(`http://localhost:4001/posts/${post.id}/comments`);
+        const commentsRes = await axios.get(`http://comments-clusterid-srv:4001/posts/${post.id}/comments`);
         console.log(commentsRes);
         posts[postId].comments = commentsRes.data.map(comment => ({
           id: comment.id,

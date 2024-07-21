@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-router.post('/events', (req, res) => {
+router.post('/', (req, res) => {
   console.log("Event Received:", req.body.type);
 
   res.send({});
