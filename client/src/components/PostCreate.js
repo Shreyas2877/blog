@@ -62,7 +62,7 @@ const PostCreate = () => {
             }}
           >
             <Typography variant="h4" component="h1" align="center" gutterBottom>
-              Post it!
+              Post it
             </Typography>
             <TextField
               label="Title"
